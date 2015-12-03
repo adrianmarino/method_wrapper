@@ -9,4 +9,5 @@ Gem::Specification.new do |s|
   s.files        = ['lib/method_wrapper.rb']
   s.licenses     = 'MIT'
   s.homepage     = 'http://nonosoft.com.ar'
+  s.add_development_dependency "rspec"
 end

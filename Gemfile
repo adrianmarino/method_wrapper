@@ -1,5 +1,2 @@
-source 'https://rubygems.org'
-
-gem 'pry'
-gem 'pry-byebug'
-gem 'method_wrapper'
+source "https://rubygems.org"
+gemspec
