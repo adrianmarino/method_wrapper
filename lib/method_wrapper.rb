@@ -1,11 +1,3 @@
-# Suppress ruby warnings
-$VERBOSE = nil
-
-require 'rubygems'
-require 'bundler/setup'
-
-Bundler.require(:default)
-
 class Class
   def wrap_method(pattern:, &wrapper)
     methods.grep(pattern).each do |name|

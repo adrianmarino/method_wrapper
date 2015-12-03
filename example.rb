@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
-require './method_wrapper'
+require 'rubygems'
+require 'bundler/setup'
+Bundler.require(:default)
 
 class Example
   def a
