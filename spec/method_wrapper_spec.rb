@@ -2,38 +2,60 @@ require 'spec_helper'
 
 describe 'Method Wrapping' do
   let(:call_block) { ->(method, *args, &block) { method.call(*args, &block) } }
+  let(:clazz) { Example }
 
-  context "when wrap an instance method" do
-    let(:instance) { Example.new }
+  context "when wraps an instance method" do
+    let(:instance) { clazz.new }
 
-    before { Example.wrap_instance_method(pattern: /^a$/, &call_block) }
+    context "with a block param" do
+      before { clazz.wrap_instance_method(pattern: /^a/, &call_block) }
 
-    it "returns a" do
-      response = Example.new.a
-      expect(response).to eq('a')
+      it "returns a_a_a" do
+        expect(instance.a_a_a { 'a' }).to eq('a_a_a')
+      end
+    end
+
+    context "with a public scope" do
+      before { clazz.wrap_instance_method(pattern: /^a$/, &call_block) }
+
+      it "returns a" do
+        expect(instance.a).to eq('a')
+      end
+    end
+
+    context "with a protected scope" do
+      before { clazz.wrap_instance_method(pattern: /^protected_method$/, &call_block) }
+
+      it "returns protected_method" do
+        expect(instance.protected_method).to eq('protected_method')
+      end
+    end
+
+    context "with a private scope" do
+      before { clazz.wrap_instance_method(pattern: /^private_method$/, &call_block) }
+
+      it "returns private_method" do
+        expect(instance.send(:private_method)).to eq('private_method')
+      end
     end
   end
 
-  context "when wrap instance method with a block param" do
-    before { Example.wrap_instance_method(pattern: /^a/, &call_block) }
-
-    it "returns a_a_a" do
-      response = Example.new.a_a_a { 'a' }
-      expect(response).to eq('a_a_a')
-    end
-  end
-
-  context "when wrap a class method" do
-    before { Example.wrap_method(pattern: /^a$/, &call_block) }
+  context "when wraps a class method" do
+    before { clazz.wrap_method(pattern: /^a$/, &call_block) }
 
     it "returns class_a" do
-      response = Example.a
-      expect(response).to eq('class_a')
+      expect(clazz.a).to eq('class_a')
     end
   end
 end
 
-class Example
+class Example  
+  class << self
+    def a
+      'class_a'
+    end
+  end
+
   def a
     "a"
   end
@@ -42,7 +64,15 @@ class Example
     "a_a_#{yield}"
   end
 
-  def self.a
-    'class_a'
+  protected
+
+  def protected_method
+    'protected_method'
+  end
+
+  private
+
+  def private_method
+    'private_method'
   end
 end
