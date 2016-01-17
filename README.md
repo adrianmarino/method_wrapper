@@ -12,22 +12,22 @@ gem 'method_wrapper', git: 'https://github.com/adrianmarino/method_wrapper.git',
 Step 2: Write an example.
 
 ```ruby
-requre 'method_wrapper'
+require 'bundler/setup'
+require 'method_wrapper'
 
-class Example
-  def a
-    "a"
+class Bob
+  def say_hello
+    puts "Hello!"
   end
 end
 
-Example.wrap_instance_method(pattern: /^a/, ->(method, *args, &block) do 
-  puts "Before call"
+Bob.wrap_instance_method(pattern: /^say_hello$/, & ->(method, *args, &block) do
+  puts "Before call #{method.name}"
   method.call(*args, &block)
-  puts "After call"
+  puts "After call #{method.name}"
 end)
 
-puts instance.new.a
-
+Bob.new.say_hello
 ```
 
 Also is possible:
