@@ -4,9 +4,9 @@ Allow intercept method invocations. Useful for log, cache, etc...
 
 ## Usage
 
-Step 1:  Include in your Gemfile.
+Step 1: Include in your Gemfile.
 ```ruby
-gem 'ruby_method_wrapper', git: 'https://github.com/adrianmarino/ruby_method_wrapper.git', branch: 'master'
+gem 'ruby_method_wrapper'
 ```
 
 Step 2: Write an example.
