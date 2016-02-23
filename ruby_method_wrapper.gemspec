@@ -9,5 +9,5 @@ Gem::Specification.new do |s|
   s.files        = Gem.find_files("lib/**/*.rb").each { |path| require path }
   s.licenses     = 'MIT'
   s.homepage     = 'http://nonosoft.com.ar'
-  s.add_development_dependency "rspec"
+  s.add_development_dependency "rspec", "3.4.0"
 end
