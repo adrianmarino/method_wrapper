@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    method_wrapper (0.0.1)
+    ruby_method_wrapper (0.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -25,8 +25,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  method_wrapper!
-  rspec
+  rspec (= 3.4.0)
+  ruby_method_wrapper!
 
 BUNDLED WITH
    1.10.6

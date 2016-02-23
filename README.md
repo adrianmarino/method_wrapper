@@ -1,12 +1,12 @@
-# method_wrapper
+# ruby-method-wrapper
 
 Allow intercept method invocations. Useful for log, cache, etc...
 
 ## Usage
 
-Step 1:  Include in your Gemfile.
+Step 1: Include in your Gemfile.
 ```ruby
-gem 'method_wrapper', git: 'https://github.com/adrianmarino/method_wrapper.git', branch: 'master'
+gem 'ruby_method_wrapper'
 ```
 
 Step 2: Write an example.
