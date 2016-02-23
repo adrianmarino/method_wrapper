@@ -13,7 +13,7 @@ Step 2: Write an example.
 
 ```ruby
 require 'bundler/setup'
-require 'method-wrapper'
+require 'method_wrapper'
 
 class Bob
   def say_hello
