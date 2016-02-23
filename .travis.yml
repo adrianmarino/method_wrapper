@@ -1,0 +1,7 @@
+language: ruby
+
+install:
+  - bundle install --retry=3
+
+script:
+  - bundle exec rspec
