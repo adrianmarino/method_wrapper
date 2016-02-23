@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name         = 'method_wrapper'
+  s.name         = 'ruby_method_wrapper'
   s.version      = '0.0.1'
   s.date         = '2015-12-02'
   s.summary      = 'Only another method wrapper lib'
