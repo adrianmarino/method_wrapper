@@ -1,4 +1,4 @@
-require 'bundler/setup'
+#!/usr/bin/env ruby
 require 'method_wrapper'
 
 class Bob
