@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/adrianmarino/ruml.svg?branch=master)](https://travis-ci.org/adrianmarino/ruby_method_wrapper)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://badges.mit-license.org)
+
 # ruby-method-wrapper
 
 Allow intercept method invocations. Useful for log, cache, etc...
